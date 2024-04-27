@@ -1,2 +1,22 @@
 
 /* Your CSS Code here. */
+ .speed{
+        display: flex;
+    }
+    .edit{
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 10px;
+        margin-top:5px;
+        
+    }
+    .edit1{
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 0px;
+        padding-left: 5px;
+        padding-right:5px ;
+        margin:4px;
+        display: flex;
+        align-items: center;
+    }

@@ -5,17 +5,89 @@
   <title>Video Speed Scrubber</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-
-  <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></video>
+ <div class="wrapper">
+    <video class="flex" id="flex1" width="765" height="430" src="https://www.w3schools.com/html/mov_bbb.mp4" controls></video>
     <div class="speed">
-      <div class="speed-bar">1×</div>
+      <div class="speed-bar" id="speed3">1×</div>
+      
+      <div id="prog" class="edit1"><label for="progre">progress__filled</label><progress id="progre" max="100" ></progress>
+      </div>
+    <div id="btndiv" ><button id="btn" class="edit">►</button>
+    </div> 
+    <div id="volume" class="edit1"><label for="vol" >Volume</label><input id="vol" type="range" min="0" max="100">
+    <p id="vol2"></p></div>
+    <div id="playspeed" class="edit1"><label for="playspeed">PlaybackSpeed</label><input id="pl_spe" type="range" min="1" max="40">
+    <p id="speed2"></p></div>
+    <div id="r10"><button id="btnr10" class="edit">« 10s</button>
     </div>
-  </div>
+    <div id="f25"><button id="btnf25" class="edit">25s »</button>
+    </div>
+  </div></div>
 
-<script  src="./script.js">
+<script>
   //Your code goes here
+  let y4;
+  let video=document.querySelector("#flex1");
+  let count=true;
+let playbtn=document.getElementById("btn");
+playbtn.addEventListener("click",()=>{
+    if(count==true){
+video.play();
+playbtn.style.backgroundColor="green";
+playbtn.innerHTML="►";
+count=false;
+y4=setInterval(func,1000);
+}
+else if(count==false){
+    video.pause();
+    playbtn.style.backgroundColor="red";
+    playbtn.innerHTML="❚❚";
+    count=true;
+    clearInterval(y4);
+}
+});
+let vol=document.getElementById("vol");
+let vol2=document.getElementById("vol2")
+vol.addEventListener("click",()=>{
+    let x=vol.value/100;
+   // console.log(x);
+    video.volume=x;
+    vol2.textContent=`Volume ${vol.value}%`;
+});
+let speed=document.getElementById("pl_spe");
+let speed2=document.getElementById("speed2");
+let speedbar=document.getElementById("speed3");
+speed.addEventListener("click",()=>{
+    let x1=speed.value/10;
+    video.playbackRate=x1;
+    speed2.textContent=`${x1}x`;
+    speedbar.textContent=`${x1}×`;
+});
+let rewind=document.getElementById("btnr10");
+let forward=document.getElementById("btnf25");
+rewind.addEventListener("click",()=>{
+video.currentTime-=10;
+});
+forward.addEventListener("click",()=>{
+video.currentTime+=25;
+});
+
+let y1=document.getElementById("progre");
+let y2=video.currentTime;
+y1.value=0;
+function func(){
+    if(y1.value<100){
+      let y3=video.duration;
+      y3=y3.toFixed(2);
+        y2=video.currentTime;
+   y2=y2.toFixed(2);
+   y1.value=(y2*100)/y3;
+    }
+    else{clearInterval(y4);
+        return;} 
+
+    }
+
 </script>
 </body>
 </html>
