@@ -67,7 +67,7 @@ let rewind=document.getElementById("btnr10");
 let forward=document.getElementById("btnf25");
 rewind.addEventListener("click",()=>{
 video.currentTime-=5;
-	video.play();
+	video.pause();
 });
 forward.addEventListener("click",()=>{
 video.currentTime+=5;
