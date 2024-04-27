@@ -36,14 +36,14 @@ video.play();
 playbtn.style.backgroundColor="green";
 playbtn.innerHTML="►";
 count=false;
-//y4=setInterval(func,1000);
+y4=setInterval(func,1000);
 }
 else if(count==false){
     video.pause();
     playbtn.style.backgroundColor="red";
     playbtn.innerHTML="❚❚";
     count=true;
-   // clearInterval(y4);
+    clearInterval(y4);
 }
 });
 let vol=document.getElementById("vol");
@@ -67,7 +67,7 @@ let rewind=document.getElementById("btnr10");
 let forward=document.getElementById("btnf25");
 rewind.addEventListener("click",()=>{
 video.currentTime-=10;
-//	video.currentTime=-33;
+	video.currentTime=-33;
 });
 forward.addEventListener("click",()=>{
 video.currentTime+=25;
@@ -76,18 +76,18 @@ video.currentTime+=25;
 let y1=document.getElementById("progre");
 let y2=video.currentTime;
 y1.value=0;
-// function func(){
-//     if(y1.value<100){
-//       let y3=video.duration;
-//       y3=y3.toFixed(2);
-//         y2=video.currentTime;
-//    y2=y2.toFixed(2);
-//    y1.value=(y2*100)/y3;
-//     }
-//     else{clearInterval(y4);
-//         return;} 
+function func(){
+    if(y1.value<100){
+      let y3=video.duration;
+      y3=y3.toFixed(2);
+        y2=video.currentTime;
+   y2=y2.toFixed(2);
+   y1.value=(y2*100)/y3;
+    }
+    else{clearInterval(y4);
+        return;} 
 
-//     }
+    }
 
 </script>
 </body>
