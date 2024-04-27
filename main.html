@@ -18,8 +18,10 @@
     <p id="vol2"></p></div>
     <div id="playspeed" class="edit1"><label for="playspeed">PlaybackSpeed</label><input class="playbackSpeed" id="pl_spe" type="range" min="1" max="40">
     <p id="speed2"></p></div>
-    <button id="btnr10"  class="rewind edit">« 10s</button>
-<button id="btnf25" class="forward edit">25s »</button>
+    <div id="r10"><button id="btnr10"  class="rewind edit">« 10s</button>
+    </div>
+    <div id="f25"><button id="btnf25" class="forward edit">25s »</button>
+    </div>
   </div></div>
 
 <script>
@@ -65,7 +67,7 @@ let rewind=document.getElementById("btnr10");
 let forward=document.getElementById("btnf25");
 rewind.addEventListener("click",()=>{
 video.currentTime-=10;
-	return video.currentTime;
+	video.currentTime=0;
 });
 forward.addEventListener("click",()=>{
 video.currentTime+=25;
