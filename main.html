@@ -20,7 +20,7 @@
     <p id="speed2"></p></div>
     <div id="r10"><button id="btnr10"  class="rewind edit">« 10s</button>
     </div>
-    <div id="f25"><button id="btnf25" class="edit">25s »</button>
+    <div id="f25"><button id="btnf25" class="forward edit">25s »</button>
     </div>
   </div></div>
 
@@ -66,10 +66,10 @@ speed.addEventListener("click",()=>{
 let rewind=document.getElementById("btnr10");
 let forward=document.getElementById("btnf25");
 rewind.addEventListener("click",()=>{
-video.currentTime-=10;
+video.currentTime-=5;
 });
 forward.addEventListener("click",()=>{
-video.currentTime+=25;
+video.currentTime+=5;
 });
 
 let y1=document.getElementById("progre");
